@@ -2,16 +2,14 @@ import './App.css';
 import Search from './components/Search';
 
 function App() {
+
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData);
+  }
+
   return (
     <div className="container">
-      <header>
-      <h1 className='text-white bg-black'>
-        Hello there
-      </h1>
-      </header>
-    <main>
-      <Search />
-    </main>
+     <Search onSearchChange ={handleOnSearchChange}/>
     </div>
   );
 }
