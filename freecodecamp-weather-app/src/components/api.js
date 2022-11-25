@@ -1,3 +1,5 @@
+// copied on https://rapidapi.com/wirefreethought/api/geodb-cities/
+
 export const geoApiOptions = {
 	method: 'GET',
 	headers: {
@@ -6,7 +8,5 @@ export const geoApiOptions = {
 	}
 };
 
-fetch('https://wft-geo-db.p.rapidapi.com/v1/geo/cities', geoApiOptions)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+export const GeoApiUrl = "https://wft-geo-db.p.rapidapi.com/v1/geo"
+
