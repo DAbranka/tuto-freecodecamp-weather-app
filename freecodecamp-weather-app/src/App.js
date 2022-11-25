@@ -9,7 +9,8 @@ function App() {
 
   return (
     <div className="container">
-     <Search onSearchChange ={handleOnSearchChange}/>
+      {/* Search = La bare de recherche */}
+     <Search onSearchChange ={handleOnSearchChange}/> 
     </div>
   );
 }

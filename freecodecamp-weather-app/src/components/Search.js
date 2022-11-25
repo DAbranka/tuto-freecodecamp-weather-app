@@ -3,24 +3,38 @@ import { AsyncPaginate } from 'react-select-async-paginate'
 
 const Search = ({onSearchChange}) => {
 
-const [search, setSearch] = useState(null);
+const [search, setSearch] = useState(null); // usestate() = (etat initial de l'app)
+ // search = la valeur de AsyncPaginate * setSearch = la valeur au changement
 
 const loadOptions = (inputValue) => {
     
 }
-const handleOnChange = (searchData) => {
+const handleOnChange = (searchData) => { // handleOnChange function qui contiendra  en parametre "searchData" qui sera les données qu'on rentre dans "AsyncPaginate" la barre de recherche.
     setSearch(searchData)
     onSearchChange(searchData)
 };
 
+// return = ce que l'app va affiché 
   return (
     <AsyncPaginate // ? What is AsyncPaginate ?
     placeholder="Search for city..."
-    debounceTimeout={600}
-    value={search}
+    debounceTimeout={600} // Délai de 6 second avant de request a nouveau
+    value={search} // la valeur contiendra la const search *
     onChange={handleOnChange}
+     // onChange = Au moment ou la valeur change > la mettre a jour
+     // handleOnChange = prend en charge le moment en question
      /> 
   )
 }
 
 export default Search
+
+// On crée un function nommée Search
+// Dans cette function on y retourne la barre de recherche qui est "AsyncPaginate"
+// Dans AsyncPaginate on y met
+  // un placeholder = "la valeur du place holder"
+  // un debounceTimout = {delai entre chaque requete}
+  // value = {la valeur de AsyncPaginate}
+  // onChange = {qui est le moment ou la valeur change}
+    // et donc la mettre à jour avec un {handleOnchange} qui sera sa valeur.
+// On crée la const [search, setSearch] = useState (initialState = etat initial de l'app)
