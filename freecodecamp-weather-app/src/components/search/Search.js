@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react'
 import { AsyncPaginate } from 'react-select-async-paginate'
-import { GeoApiUrl, geoApiOptions } from './api'
+import { GeoApiUrl, geoApiOptions } from '../api'
 
 /*________________________________________________M A I N  F U N C T I O N_____________________________________________________________________*/
 
@@ -16,7 +16,7 @@ const Search = ({onSearchChange}) => { // onSearchChange = le moment ou la valeu
 const [search, setSearch] = useState([]); // usestate() = (etat initial de l'app)
  // search = la valeur de AsyncPaginate * setSearch = la valeur au changement
 
-/*_____________Inside__Functions(2)______________________*/
+/*_____________INSIDE__FUNCTIONS(2)______________________*/
  
  /*__↓__FUNCTION__loadOptions__↓__ */
 const loadOptions = (inputValue) => { //inputValue = la valeur tapé dans la barre qui servira de requete au données voulu
@@ -24,7 +24,17 @@ const loadOptions = (inputValue) => { //inputValue = la valeur tapé dans la bar
     return fetch(`${GeoApiUrl}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions)
 
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+      // function pour avoir les suggestions
+      return {
+        options: response.data.map((city) =>{ //? response.data.map
+          return {
+            value: `${city.latitude} ${city.longitude}`,
+            label: `${city.name} ${city.countryCode}`,
+          }
+        })
+      }
+    })
     .catch(err => console.error(err));
 }
 
@@ -34,7 +44,7 @@ const handleOnChange = (searchData) => { // handleOnChange function qui contiend
     onSearchChange(searchData)
 };
 
-/*______________________________________________________R E T U R N______________________________________________________________________*/
+/*______________________________________________________M A I N  F U N C T I O N  R E T U R N______________________________________________________________________*/
 
 /*__↓__R E T U R N__↓__ */
 

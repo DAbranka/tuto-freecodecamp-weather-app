@@ -1,5 +1,6 @@
 import './App.css';
-import Search from './components/Search';
+import CurrentWeather from './components/current-weather/CurrentWeather';
+import Search from './components/search/Search';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       {/* Search = La bare de recherche */}
      <Search onSearchChange ={handleOnSearchChange}/>  
      {/* onSearchChange = le moment ou la valeur de la rech' change > {handleOnSearchChange = prend en charge le moment} */}
+    <CurrentWeather />
     </div>
   );
 }
