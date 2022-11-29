@@ -4,6 +4,7 @@
 import React, { useState } from 'react'
 import { AsyncPaginate } from 'react-select-async-paginate'
 import { GeoApiUrl, geoApiOptions } from '../api'
+import PropTypes from 'prop-types';
 
 /*________________________________________________M A I N  F U N C T I O N_____________________________________________________________________*/
 
@@ -60,6 +61,10 @@ const handleOnChange = (searchData) => { // handleOnChange function qui contiend
      loadOptions={loadOptions} // propriété avec valeur "loadOptions" = 
      /> 
   )
+}
+
+Search.propTypes = {
+  onSearchChange: PropTypes.func
 }
 
 /*______________________________________________________E X P O R T S_______________________________________________________________*/
