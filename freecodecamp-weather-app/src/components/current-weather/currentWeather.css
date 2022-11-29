@@ -35,5 +35,24 @@
   letter-spacing: -5px;
   margin: 10px 0;
 }
+.weather .details {
+  width: 100%;
+  padding-left: 20px;
+}
+.weather .parameter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather .parameter-label {
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+}
+.weather .parameter-value {
+  text-align: right;
+  font-weight: 600;
+  font-size: 12px;
+}
 
 /*# sourceMappingURL=currentWeather.css.map */

@@ -1,3 +1,9 @@
+@import "./components/currentWeather.scss";
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .container{
     max-width: 1080px;
     margin:  20px auto;
