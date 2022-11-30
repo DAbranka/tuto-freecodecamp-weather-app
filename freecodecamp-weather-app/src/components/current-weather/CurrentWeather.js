@@ -2,19 +2,33 @@
 
 import "./currentWeather.css";
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /*________________________________________________M A I N  F U N C T I O N_____________________________________________________________________*/
 
-const CurrentWeather = ({data}) => {
+const CurrentWeather = ({ data }) => {
+  console.log("currentWeatherComponent", data);
+
+  if (Object.keys(data).length === 0) {
+    return "";
+  }
+
   return (
     <div className="weather">
       <div className="top">
         <div>
           <p className="city">{data.city}</p>
-          <p className="weather-description">{data.weather[0].description}</p>  {/* errors : Cannot read properties of undefined (reading '0') */}
+          <p className="weather-description">{data.weather[0].description}</p>
+          {/* {data.weather[0].description} */}
+          {/* errors : Cannot read properties of undefined (reading '0') */}
         </div>
-        <img alt="weather" className="weather-icon" src={data.weather[0].icon} /> {/* errors : Cannot read properties of undefined (reading '0') */}
+        <img
+          alt="weather"
+          className="weather-icon"
+          src="src={`icons/${data.weather[0].icon}.png`} "
+        />
+        {/* src={`icon/${data.weather[0].icon}.png`} */}
+        {/* errors : Cannot read properties of undefined (reading '0') */}
       </div>
       <div className="bottom">
         <p className="temperature">18°C</p>
@@ -45,8 +59,8 @@ const CurrentWeather = ({data}) => {
 };
 
 CurrentWeather.propTypes = {
-  data: PropTypes.array
-}
+  data: PropTypes.array,
+};
 
 // ! reprendre la video à 55'35"
 
